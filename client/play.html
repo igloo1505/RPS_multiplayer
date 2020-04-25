@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-messaging.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css" />
+    <title>RPS multiplayer</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <a
+        class="waves-effect waves-teal btn-flat modal-trigger"
+        id="signInButton"
+        href="#signInModal"
+        style="margin-top: 10px;"
+        >Create User Name</a
+      >
+      <p id="nameHolder" class="hide"></p>
+      <h1 class="center">Rock Paper Scissors</h1>
+      <div class="btnContainer center">
+        <input type="button" class="btn" id="r" value="R" />
+        <input type="button" class="btn" id="p" value="P" />
+        <input type="button" class="btn" id="s" value="S" />
+      </div>
+    </div>
+
+    <script>
+      M.AutoInit();
+    </script>
+    <script src="./bundle.js"></script>
+  </body>
+</html>

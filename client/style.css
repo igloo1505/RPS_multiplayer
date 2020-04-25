@@ -1,0 +1,13 @@
+.hide {
+  display: none;
+}
+
+.container-login {
+  margin-top: 50vh;
+  transform: translateY(-50%);
+}
+
+.btnContainer {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
