@@ -1,6 +1,8 @@
 // require("./sw.js");
 const axios = require("axios");
 // import Axios from "./node_modules/axios/lib/axios.js";
+// require("./socketio.js");
+// var firebase = require("firebase");
 
 var firebaseConfig = {
   apiKey: "AIzaSyAqPiu21qXMQ8k_Yo-2QYGU2xaImKYy7SQ",
@@ -14,7 +16,6 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 let database = firebase.database();
 
 const publicVapidKey =
@@ -79,10 +80,10 @@ let connectedRef = database.ref(".info/connected");
 //   }
 // });
 
-connectionsRef.on("value", (snapshot) => {
-  console.log(snapshot.val());
-  console.log("number of users connected", snapshot.numChildren());
-});
+// connectionsRef.on("value", (snapshot) => {
+//   console.log(snapshot.val());
+//   console.log("number of users connected", snapshot.numChildren());
+// });
 
 // const submitUser = (name, token) => {
 //   let userInput = {
@@ -143,12 +144,12 @@ if (window.location.pathname === "/play.html") {
   }
 }
 
-// if (window.sessionStorage.name) {
-//   nameHolder.classList.remove("hide");
-//   signInButton.classList.add("hide");
-//   playerName = window.sessionStorage.getItem("name");
-//   nameHolder.textContent = playerName;
-// }
+if (window.sessionStorage.name) {
+  nameHolder.classList.remove("hide");
+  signInButton.classList.add("hide");
+  playerName = window.sessionStorage.getItem("name");
+  nameHolder.textContent = playerName;
+}
 
 let firstNameInput = document.getElementById("first_name");
 let lastNameInput = document.getElementById("last_name");
@@ -159,16 +160,22 @@ let lastName = "";
 let password = "";
 let email = "";
 
-document.getElementById("submitRegister").addEventListener("click", (e) => {
-  e.preventDefault();
-  firstName = firstNameInput.value;
-  lastName = lastNameInput.value;
-  email = emailInput.value;
-  let newUser = {
-    firstName,
-    lastName,
-    email,
-  };
-  console.log("newUser", newUser);
-  window.location.pathname = "/client/play.html";
-});
+if (
+  window.location.pathname === "/" ||
+  window.location.pathname === "/index.html"
+) {
+  document.getElementById("submitRegister").addEventListener("click", (e) => {
+    e.preventDefault();
+    firstName = firstNameInput.value;
+    lastName = lastNameInput.value;
+    email = emailInput.value;
+    window.sessionStorage.setItem("name", firstName + " " + lastName);
+    let newUser = {
+      firstName,
+      lastName,
+      email,
+    };
+    console.log("newUser", newUser);
+    window.location.pathname = "/play.html";
+  });
+}

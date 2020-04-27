@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open",
-    "build": "webpack ./index.js -o ./bundle.js"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "path": "^0.12.7"
+    "firebase": "^7.14.2",
+    "path": "^0.12.7",
+    "socket.io-client": "^2.3.0"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
